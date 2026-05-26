@@ -17,8 +17,7 @@
     "verbatimModuleSyntax": false,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "outDir": "dist",
-    "rootDir": "src"
+    "outDir": "dist"
   },
   "include": ["src/**/*", "test/**/*"]
 }

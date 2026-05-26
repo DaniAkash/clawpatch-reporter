@@ -1,0 +1,678 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`renderHtml > renders the full daniakash.com fixture report 1`] = `
+"<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Clawpatch report: daniakash.com</title>
+<link rel="stylesheet" href="https://newcss.net/new.min.css" />
+<style>
+:root {
+  --pill-critical: #c0212f;
+  --pill-high: #d9480f;
+  --pill-medium: #c47f17;
+  --pill-low: #2f7a4f;
+  --pill-open: #1c63a8;
+  --pill-fixed: #2f7a4f;
+  --pill-fp: #6b7280;
+  --pill-wont: #6b7280;
+  --pill-uncertain: #7c3aed;
+  --pill-fg: #fff;
+  --row-bg: rgba(0, 0, 0, 0.025);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --row-bg: rgba(255, 255, 255, 0.04);
+  }
+}
+.metadata-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  font-size: 0.95rem;
+  color: var(--text-color, inherit);
+  margin-top: 0.25rem;
+}
+.metadata-bar code {
+  font-size: 0.9em;
+}
+.pill {
+  display: inline-block;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--pill-fg);
+  vertical-align: middle;
+}
+.pill-severity-critical { background: var(--pill-critical); }
+.pill-severity-high { background: var(--pill-high); }
+.pill-severity-medium { background: var(--pill-medium); }
+.pill-severity-low { background: var(--pill-low); }
+.pill-status-open { background: var(--pill-open); }
+.pill-status-fixed { background: var(--pill-fixed); }
+.pill-status-false-positive { background: var(--pill-fp); }
+.pill-status-wont-fix { background: var(--pill-wont); }
+.pill-status-uncertain { background: var(--pill-uncertain); }
+.summary-tables {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+.summary-tables table {
+  width: 100%;
+}
+.finding-meta {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0.75rem 0 1rem;
+}
+.finding-meta dt {
+  font-weight: 600;
+  opacity: 0.7;
+}
+.finding-meta dd {
+  margin: 0;
+}
+article.finding {
+  padding: 1rem 0;
+  border-top: 1px solid rgba(127, 127, 127, 0.25);
+}
+article.finding header h3 {
+  margin: 0 0 0.5rem;
+}
+article.finding .pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+details {
+  margin: 0.75rem 0;
+}
+details > summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+pre {
+  overflow-x: auto;
+}
+nav.toc ul {
+  padding-left: 1.2rem;
+}
+nav.toc ul ul {
+  padding-left: 1rem;
+  font-size: 0.9rem;
+}
+.callout {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+  border-left: 4px solid currentColor;
+  background: var(--row-bg);
+}
+.callout-caution { color: var(--pill-critical); }
+.callout-warning { color: var(--pill-high); }
+.callout-note { color: var(--pill-open); }
+.callout-tip { color: var(--pill-fixed); }
+</style>
+</head>
+<body>
+<header>
+<h1>Clawpatch report</h1>
+<div class="metadata-bar">
+  <span><strong>daniakash.com</strong></span>
+  <span><a href="https://github.com/DaniAkash/DaniAkash.git">https://github.com/DaniAkash/DaniAkash.git</a></span>
+  <span>branch <code>main</code></span>
+  <span>head <code>66026de62652</code></span>
+  <span>generated 2026-05-26T12:00:00.000Z</span>
+  <span>16 features · 8 findings · 1 patches</span>
+</div>
+</header>
+<div class="callout callout-note"><strong>Note.</strong> 7 open findings.</div>
+<nav class="toc" aria-label="Report sections">
+<h2>Contents</h2>
+<ul>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#findings">Findings</a><ul>
+<li><a href="#fnd-fnd-sig-feat-library-c79e5f55d9-5584-db02b323ab">🟠 Theme changes leave the globe marker and polaroid out of sync</a></li>
+<li><a href="#fnd-fnd-sig-feat-library-f8bf0b65a1-25e6-32053b1a94">🟠 RSS loader trusts newsletter item links as valid URLs</a></li>
+<li><a href="#fnd-fnd-sig-feat-library-481f66376c-879f-b965fb035b">🟠 writeFileToDist can write outside the build output directory</a></li>
+<li><a href="#fnd-fnd-sig-feat-library-30733ce202-15b1-d92dacd3bb">🟠 RSS generation can silently emit invalid feed URLs when Astro site is unset</a></li>
+<li><a href="#fnd-fnd-sig-feat-library-c79e5f55d9-efe0-8cd087f67c">🟠 Globe crashes when given an empty destinations array</a></li>
+<li><a href="#fnd-fnd-sig-feat-library-30733ce202-670c-5830062c73">🟡 RSS feed behavior has no regression coverage</a></li>
+<li><a href="#fnd-fnd-sig-feat-library-f180a663ec-2f87-ba76a6a1c6">🟡 README documents npm commands despite pnpm package manager</a></li>
+<li><a href="#fnd-fnd-sig-feat-library-f180a663ec-67b7-80b2025d73">🟡 Publishable website package is not marked private</a></li>
+</ul></li>
+<li><a href="#features">Features</a><ul>
+<li><a href="#feat-feat-config-0c1c23856a">Project config tsconfig.json</a></li>
+<li><a href="#feat-feat-config-7528cb5b98">Project config package.json</a></li>
+<li><a href="#feat-feat-library-126d1a8112">Node source src/constants</a></li>
+<li><a href="#feat-feat-library-30733ce202">Node source src/pages</a></li>
+<li><a href="#feat-feat-library-481f66376c">Node source src/utils</a></li>
+<li><a href="#feat-feat-library-c79e5f55d9">Node source src/components</a></li>
+<li><a href="#feat-feat-library-f180a663ec">Node package daniakash.com</a></li>
+<li><a href="#feat-feat-library-f8bf0b65a1">Node source src</a></li>
+<li><a href="#feat-feat-release-4862937c51">Package script lint</a></li>
+<li><a href="#feat-feat-release-51170e0f9c">Package script build</a></li>
+<li><a href="#feat-feat-release-734b842583">Package script format</a></li>
+<li><a href="#feat-feat-release-775032a0f4">Package script start</a></li>
+<li><a href="#feat-feat-release-a235aa99b1">Package script typecheck</a></li>
+<li><a href="#feat-feat-ui-flow-01d1997a91">React component AmbientCanvas</a></li>
+<li><a href="#feat-feat-ui-flow-a5816877de">React component ThemeToggle</a></li>
+<li><a href="#feat-feat-ui-flow-e084b0b622">React component Globe</a></li>
+</ul></li>
+<li><a href="#patches">Patches</a></li>
+</ul>
+</nav>
+<main>
+<section id="summary" aria-labelledby="summary-h">
+<h2 id="summary-h">Summary</h2>
+<p><strong>Total findings:</strong> 8</p>
+<div class="summary-tables">
+  <table><caption>By severity</caption><thead><tr><th>Severity</th><th>Count</th></tr></thead><tbody>
+<tr><td>🚨 <span class="pill pill-severity-critical">critical</span></td><td>0</td></tr>
+<tr><td>🔴 <span class="pill pill-severity-high">high</span></td><td>0</td></tr>
+<tr><td>🟠 <span class="pill pill-severity-medium">medium</span></td><td>5</td></tr>
+<tr><td>🟡 <span class="pill pill-severity-low">low</span></td><td>3</td></tr>
+  </tbody></table>
+  <table><caption>By status</caption><thead><tr><th>Status</th><th>Count</th></tr></thead><tbody>
+<tr><td>◯ <span class="pill pill-status-open">open</span></td><td>7</td></tr>
+<tr><td>? <span class="pill pill-status-uncertain">uncertain</span></td><td>0</td></tr>
+<tr><td>✗ <span class="pill pill-status-false-positive">false-positive</span></td><td>0</td></tr>
+<tr><td>⊘ <span class="pill pill-status-wont-fix">wont-fix</span></td><td>0</td></tr>
+<tr><td>✓ <span class="pill pill-status-fixed">fixed</span></td><td>1</td></tr>
+  </tbody></table>
+  <table><caption>By category</caption><thead><tr><th>Category</th><th>Count</th></tr></thead><tbody><tr><td>security</td><td>1</td></tr>
+<tr><td>bug</td><td>2</td></tr>
+<tr><td>api-contract</td><td>2</td></tr>
+<tr><td>test-gap</td><td>1</td></tr>
+<tr><td>docs-gap</td><td>1</td></tr>
+<tr><td>build-release</td><td>1</td></tr></tbody></table>
+</div>
+</section>
+<section id="findings" aria-labelledby="findings-h">
+<h2 id="findings-h">Findings</h2>
+<article class="finding" id="fnd-fnd-sig-feat-library-c79e5f55d9-5584-db02b323ab" data-severity="medium" data-status="open">
+<header>
+<h3>🟠 Theme changes leave the globe marker and polaroid out of sync</h3>
+<div class="pills">
+<span class="pill pill-severity-medium">medium</span>
+<span class="pill pill-status-open">◯ open</span>
+</div>
+</header>
+<dl class="finding-meta">
+<dt>ID</dt><dd><code>fnd_sig-feat-library-c79e5f55d9-5584_db02b323ab</code></dd>
+<dt>Feature</dt><dd><a href="#feat-feat-library-c79e5f55d9">Node source src/components</a></dd>
+<dt>Category</dt><dd>bug</dd>
+<dt>Confidence</dt><dd>high</dd>
+<dt>Triage</dt><dd>confirmed-bug</dd>
+</dl>
+<details open>
+<summary>Evidence (2 items)</summary>
+<ul>
+<li><code>src/components/Globe.tsx:227-265</code> <code>animate</code>
+<pre><code class="language-tsx">const dest = DESTINATIONS[currentIdxRef.current]!;</code></pre>
+</li>
+<li><code>src/components/Globe.tsx:282-308</code> <code>MutationObserver callback</code>
+<pre><code class="language-tsx">markers: [{ location: DESTINATIONS[currentIdx]!.loc, size: 0.03 }]</code></pre>
+</li>
+</ul>
+
+</details>
+<section>
+<h4>Reasoning</h4>
+<p>The initial animation loop updates the cobe phi and also reprojects the polaroid against currentIdxRef on every frame. When the theme class changes, the observer destroys the globe, cancels that loop, creates a new globe with markers from the stale currentIdx captured by the empty-deps effect, and starts animateNew, which only updates phi. After a user navigates away from the initial destination and toggles the theme, the cobe marker can reset to the initial destination while the UI card still shows the selected destination; the polaroid left/top also stop being recomputed, so it no longer tracks the active marker.</p>
+</section>
+<section>
+<h4>Recommendation</h4>
+<p>Factor globe creation and the frame loop through one shared path that always reads currentIdxRef.current for markers and always runs the polaroid projection logic. Avoid using stale currentIdx inside the empty-deps observer callback.</p>
+</section>
+<section>
+<h4>Minimum fix scope</h4>
+<p>src/components/Globe.tsx theme observer and animation loop setup.</p>
+</section>
+<section>
+<h4>Reproduction</h4>
+<p>Render Globe with multiple destinations, click Next so currentIdx differs from the initial random startIdx, then toggle the theme. The recreated cobe globe uses the effect&#39;s captured currentIdx for markers and the replacement animation loop no longer runs the polaroid projection block.</p>
+</section>
+<details>
+<summary>Test analysis</summary>
+<p>No tests are included for Globe interactions or theme mutation behavior.</p>
+<h5>Suggested regression test</h5>
+<p>Add a component/browser test that advances to a non-initial destination, toggles document.documentElement.classList.dark, and asserts the recreated globe marker update and polaroid positioning use the current destination rather than the initial one.</p>
+</details>
+</article>
+<article class="finding" id="fnd-fnd-sig-feat-library-f8bf0b65a1-25e6-32053b1a94" data-severity="medium" data-status="open">
+<header>
+<h3>🟠 RSS loader trusts newsletter item links as valid URLs</h3>
+<div class="pills">
+<span class="pill pill-severity-medium">medium</span>
+<span class="pill pill-status-open">◯ open</span>
+</div>
+</header>
+<dl class="finding-meta">
+<dt>ID</dt><dd><code>fnd_sig-feat-library-f8bf0b65a1-25e6_32053b1a94</code></dd>
+<dt>Feature</dt><dd><a href="#feat-feat-library-f8bf0b65a1">Node source src</a></dd>
+<dt>Category</dt><dd>bug</dd>
+<dt>Confidence</dt><dd>medium</dd>
+<dt>Triage</dt><dd>risk</dd>
+</dl>
+<details open>
+<summary>Evidence</summary>
+<ul>
+<li><code>src/content.config.ts:161-163</code> <code>rss.loader</code>
+<pre><code class="language-ts">const urlObject = new URL(item.link);
+      const slug = urlObject.pathname.split(&quot;/&quot;).filter(Boolean).pop()!;</code></pre>
+</li>
+</ul>
+
+</details>
+<section>
+<h4>Reasoning</h4>
+<p>The RSS collection loader constructs a URL and non-null slug directly from each external feed item&#39;s link. If the upstream newsletter feed contains a missing, relative, malformed, or pathless link, Astro content loading will throw during typecheck/build instead of skipping or reporting a controlled content error. This makes the site build depend on an unchecked external field.</p>
+</section>
+<section>
+<h4>Recommendation</h4>
+<p>Validate item.link before constructing URL and handle empty path segments explicitly, for example by filtering invalid feed items with a clear warning or deriving a fallback id from a stable feed field.</p>
+</section>
+<section>
+<h4>Minimum fix scope</h4>
+<p>Update the rss collection loader in src/content.config.ts to validate link and slug extraction.</p>
+</section>
+
+<details>
+<summary>Test analysis</summary>
+<p>No tests are listed for this feature, and the current schema only validates the mapped output after the loader has already parsed item.link.</p>
+<h5>Suggested regression test</h5>
+<p>Mock the RSS parser to return an item with an invalid or pathless link and assert the loader handles it without an uncaught URL or non-null assertion failure.</p>
+</details>
+</article>
+<article class="finding" id="fnd-fnd-sig-feat-library-481f66376c-879f-b965fb035b" data-severity="medium" data-status="open">
+<header>
+<h3>🟠 writeFileToDist can write outside the build output directory</h3>
+<div class="pills">
+<span class="pill pill-severity-medium">medium</span>
+<span class="pill pill-status-open">◯ open</span>
+</div>
+</header>
+<dl class="finding-meta">
+<dt>ID</dt><dd><code>fnd_sig-feat-library-481f66376c-879f_b965fb035b</code></dd>
+<dt>Feature</dt><dd><a href="#feat-feat-library-481f66376c">Node source src/utils</a></dd>
+<dt>Category</dt><dd>security</dd>
+<dt>Confidence</dt><dd>medium</dd>
+<dt>Triage</dt><dd>risk</dd>
+</dl>
+<details open>
+<summary>Evidence (2 items)</summary>
+<ul>
+<li><code>src/utils/writeFileToDist.ts:5-9</code> <code>writeFileToDist</code>
+<pre><code class="language-ts">const imagePath = resolve(process.cwd(), \`\${targetDir}\${filePath}\`);</code></pre>
+</li>
+<li><code>src/utils/getOGImage.ts:15</code> <code>getOGImage</code>
+<pre><code class="language-ts">path: string;</code></pre>
+</li>
+</ul>
+
+</details>
+<section>
+<h4>Reasoning</h4>
+<p>The destination path is built by string-concatenating the output directory with a caller-controlled path and then resolving it. A value such as \`/../../outside.png\` becomes \`dist/../../outside.png\` in production and resolves outside \`dist\`, so any caller that passes content-derived or otherwise variable paths can overwrite files outside the intended output tree during build/dev generation. getOGImage exposes this as a plain \`path: string\` parameter and forwards it to the writer without validation.</p>
+</section>
+<section>
+<h4>Recommendation</h4>
+<p>Resolve against a fixed base directory using \`resolve(baseDir, relativePathWithoutLeadingSlash)\`, then verify the result remains within that base directory before writing. Reject absolute paths and any path containing traversal segments.</p>
+</section>
+<section>
+<h4>Minimum fix scope</h4>
+<p>Constrain and validate \`filePath\` inside \`src/utils/writeFileToDist.ts\`; optionally document the accepted path shape at the \`getOGImage\` call boundary.</p>
+</section>
+<section>
+<h4>Reproduction</h4>
+<p>Call \`writeFileToDist(&#39;/../../escaped.txt&#39;, Buffer.from(&#39;x&#39;))\` from the project root in production mode; the resolved target is outside \`dist\`.</p>
+</section>
+<details>
+<summary>Test analysis</summary>
+<p>No tests are included for this utility group, and there is no regression coverage for path normalization or traversal rejection.</p>
+<h5>Suggested regression test</h5>
+<p>Add tests for \`writeFileToDist\` that accept normal paths like \`/og/foo.png\` but reject \`/../foo\`, \`/../../foo\`, absolute filesystem paths, and encoded or mixed traversal variants if those can reach this API.</p>
+</details>
+</article>
+<article class="finding" id="fnd-fnd-sig-feat-library-30733ce202-15b1-d92dacd3bb" data-severity="medium" data-status="open">
+<header>
+<h3>🟠 RSS generation can silently emit invalid feed URLs when Astro site is unset</h3>
+<div class="pills">
+<span class="pill pill-severity-medium">medium</span>
+<span class="pill pill-status-open">◯ open</span>
+</div>
+</header>
+<dl class="finding-meta">
+<dt>ID</dt><dd><code>fnd_sig-feat-library-30733ce202-15b1_d92dacd3bb</code></dd>
+<dt>Feature</dt><dd><a href="#feat-feat-library-30733ce202">Node source src/pages</a></dd>
+<dt>Category</dt><dd>api-contract</dd>
+<dt>Confidence</dt><dd>medium</dd>
+<dt>Triage</dt><dd>contract-mismatch</dd>
+</dl>
+<details open>
+<summary>Evidence (2 items)</summary>
+<ul>
+<li><code>src/pages/rss.xml.ts:10-13</code> <code>GET</code>
+<pre><code class="language-ts">return rss({
+    title: &quot;Dani Akash’s Blog&quot;,
+    description:
+      &quot;Where my thoughts get some air time (and occasionally make sense).&quot;,
+    site: context.site ?? &quot;&quot;,</code></pre>
+</li>
+<li><code>package.json:6-8</code>
+<pre><code class="language-json">&quot;build&quot;: &quot;astro check &amp;&amp; astro build&quot;</code></pre>
+</li>
+</ul>
+
+</details>
+<section>
+<h4>Reasoning</h4>
+<p>@astrojs/rss uses the site value as the base for feed links. Falling back to an empty string hides a missing Astro site configuration and can produce an RSS file with non-absolute or malformed channel/item URLs during build instead of failing clearly. Feed consumers commonly require absolute URLs, so this can break subscriptions even when the build command succeeds.</p>
+</section>
+<section>
+<h4>Recommendation</h4>
+<p>Require a configured site before calling rss(), either by removing the empty-string fallback and ensuring Astro config sets site, or by throwing a clear error when context.site is missing.</p>
+</section>
+<section>
+<h4>Minimum fix scope</h4>
+<p>Update src/pages/rss.xml.ts to reject missing context.site or provide a verified canonical site URL.</p>
+</section>
+
+<details>
+<summary>Test analysis</summary>
+<p>No linked tests exercise RSS generation with context.site undefined or validate that generated feed links are absolute.</p>
+<h5>Suggested regression test</h5>
+<p>Add a test or build-time assertion that calls GET with a missing site and verifies it fails with a clear error, plus a positive case that generated item links are absolute when site is configured.</p>
+</details>
+</article>
+<article class="finding" id="fnd-fnd-sig-feat-library-c79e5f55d9-efe0-8cd087f67c" data-severity="medium" data-status="open">
+<header>
+<h3>🟠 Globe crashes when given an empty destinations array</h3>
+<div class="pills">
+<span class="pill pill-severity-medium">medium</span>
+<span class="pill pill-status-open">◯ open</span>
+</div>
+</header>
+<dl class="finding-meta">
+<dt>ID</dt><dd><code>fnd_sig-feat-library-c79e5f55d9-efe0_8cd087f67c</code></dd>
+<dt>Feature</dt><dd><a href="#feat-feat-library-c79e5f55d9">Node source src/components</a></dd>
+<dt>Category</dt><dd>api-contract</dd>
+<dt>Confidence</dt><dd>medium</dd>
+<dt>Triage</dt><dd>contract-mismatch</dd>
+</dl>
+<details open>
+<summary>Evidence (3 items)</summary>
+<ul>
+<li><code>src/components/Globe.tsx:100-115</code> <code>Globe</code>
+<pre><code class="language-tsx">destinations: DestinationInput[]</code></pre>
+</li>
+<li><code>src/components/Globe.tsx:128</code> <code>Globe</code>
+<pre><code class="language-tsx">const d = DESTINATIONS[currentIdx]!;</code></pre>
+</li>
+<li><code>src/components/Globe.tsx:142-146</code> <code>switchTo</code>
+<pre><code class="language-tsx">((idx % DESTINATIONS.length) + DESTINATIONS.length) % DESTINATIONS.length</code></pre>
+</li>
+</ul>
+
+</details>
+<section>
+<h4>Reasoning</h4>
+<p>The prop type allows any array, including an empty one. With zero destinations, startIdx becomes NaN from Math.random() * 0, then the render immediately dereferences DESTINATIONS[startIdx]!.loc and DESTINATIONS[currentIdx]!, causing a runtime crash. Navigation also performs modulo by DESTINATIONS.length, which is zero. If this component is fed from content or data that can be temporarily empty, the page fails instead of rendering an empty state.</p>
+</section>
+<section>
+<h4>Recommendation</h4>
+<p>Either enforce a non-empty tuple type at the component boundary and validate callers, or add an early empty-state return before computing startIdx/current destination and disable cycling/navigation when there are no destinations.</p>
+</section>
+<section>
+<h4>Minimum fix scope</h4>
+<p>src/components/Globe.tsx initialization and render guard for DESTINATIONS.length === 0.</p>
+</section>
+<section>
+<h4>Reproduction</h4>
+<p>Render &lt;Globe destinations={[]} /&gt;. The component computes startIdx as NaN and then attempts to read DESTINATIONS[startIdx]!.loc during render.</p>
+</section>
+<details>
+<summary>Test analysis</summary>
+<p>No tests are included for the Globe prop contract or empty data states.</p>
+<h5>Suggested regression test</h5>
+<p>Add a render test for &lt;Globe destinations={[]} /&gt; that expects a stable empty state and no thrown exception.</p>
+</details>
+</article>
+<article class="finding" id="fnd-fnd-sig-feat-library-30733ce202-670c-5830062c73" data-severity="low" data-status="open">
+<header>
+<h3>🟡 RSS feed behavior has no regression coverage</h3>
+<div class="pills">
+<span class="pill pill-severity-low">low</span>
+<span class="pill pill-status-open">◯ open</span>
+</div>
+</header>
+<dl class="finding-meta">
+<dt>ID</dt><dd><code>fnd_sig-feat-library-30733ce202-670c_5830062c73</code></dd>
+<dt>Feature</dt><dd><a href="#feat-feat-library-30733ce202">Node source src/pages</a></dd>
+<dt>Category</dt><dd>test-gap</dd>
+<dt>Confidence</dt><dd>high</dd>
+<dt>Triage</dt><dd>test-gap</dd>
+</dl>
+<details open>
+<summary>Evidence (2 items)</summary>
+<ul>
+<li><code>package.json:6-15</code>
+<pre><code class="language-json">&quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;astro dev&quot;,
+    &quot;start&quot;: &quot;astro dev&quot;,
+    &quot;build&quot;: &quot;astro check &amp;&amp; astro build&quot;,
+    &quot;preview&quot;: &quot;astro preview&quot;,
+    &quot;astro&quot;: &quot;astro&quot;,
+    &quot;typecheck&quot;: &quot;astro check&quot;,
+    &quot;lint&quot;: &quot;biome check .&quot;,
+    &quot;lint:fix&quot;: &quot;biome check --fix .&quot;,
+    &quot;format&quot;: &quot;biome format --write .&quot;,
+    &quot;clawpatch&quot;: &quot;clawpatch&quot;
+  }</code></pre>
+</li>
+<li><code>src/pages/rss.xml.ts:14-31</code> <code>GET</code>
+<pre><code class="language-ts">items: [
+      ...blog.map((post) =&gt; {
+        return {
+          title: post.data.title,
+          pubDate: new Date(post.data.date),
+          description: post.data.subtitle,
+          link: \`/posts/\${post.id}\`,
+          content: sanitizeHtml(parser.render(post.body ?? &quot;&quot;), {
+            allowedTags: sanitizeHtml.defaults.allowedTags.concat([&quot;img&quot;]),
+          }),
+        };
+      }),</code></pre>
+</li>
+</ul>
+
+</details>
+<section>
+<h4>Reasoning</h4>
+<p>The route combines two content collections, renders Markdown to HTML, sanitizes feed content, constructs public links, and sorts by publication date, but the project exposes no test command and no linked tests were provided. Regressions in ordering, URL generation, invalid dates, or sanitization policy would currently be caught only by manual inspection or downstream feed-reader failures.</p>
+</section>
+<section>
+<h4>Recommendation</h4>
+<p>Add focused coverage for RSS item generation: ordering across blog/news entries, absolute link output, expected sanitization of unsafe HTML, and handling of invalid or missing dates.</p>
+</section>
+<section>
+<h4>Minimum fix scope</h4>
+<p>Add a test harness or route-level test for src/pages/rss.xml.ts and expose it through a package script if the project standardizes on a test runner.</p>
+</section>
+
+<details>
+<summary>Test analysis</summary>
+<p>The feature metadata lists no tests, and package.json has typecheck/lint/build scripts but no test script.</p>
+<h5>Suggested regression test</h5>
+<p>Create an RSS route test with mocked getCollection data for both collections and assert stable sorted output, sanitized content, and valid feed URLs.</p>
+</details>
+</article>
+<article class="finding" id="fnd-fnd-sig-feat-library-f180a663ec-2f87-ba76a6a1c6" data-severity="low" data-status="open">
+<header>
+<h3>🟡 README documents npm commands despite pnpm package manager</h3>
+<div class="pills">
+<span class="pill pill-severity-low">low</span>
+<span class="pill pill-status-open">◯ open</span>
+</div>
+</header>
+<dl class="finding-meta">
+<dt>ID</dt><dd><code>fnd_sig-feat-library-f180a663ec-2f87_ba76a6a1c6</code></dd>
+<dt>Feature</dt><dd><a href="#feat-feat-library-f180a663ec">Node package daniakash.com</a></dd>
+<dt>Category</dt><dd>docs-gap</dd>
+<dt>Confidence</dt><dd>high</dd>
+<dt>Triage</dt><dd>docs-gap</dd>
+</dl>
+<details open>
+<summary>Evidence (2 items)</summary>
+<ul>
+<li><code>package.json:5</code>
+<pre><code class="language-json">&quot;packageManager&quot;: &quot;pnpm@10.33.0&quot;</code></pre>
+</li>
+<li><code>README.md:31-39</code>
+<pre><code class="language-markdown">The commands table uses npm install and npm run commands.</code></pre>
+</li>
+</ul>
+
+</details>
+<section>
+<h4>Reasoning</h4>
+<p>The package manifest explicitly pins pnpm, but the package context tells contributors to install and run the project with npm. Following the README can create an npm lockfile, ignore pnpm-specific lock resolution, and make local or CI dependency behavior diverge from the intended package manager.</p>
+</section>
+<section>
+<h4>Recommendation</h4>
+<p>Update README commands to use \`pnpm install\`, \`pnpm dev\`, \`pnpm build\`, \`pnpm preview\`, and \`pnpm astro ...\`, or remove the starter README if it is no longer authoritative.</p>
+</section>
+<section>
+<h4>Minimum fix scope</h4>
+<p>README.md command table and any setup snippets that mention npm.</p>
+</section>
+<section>
+<h4>Reproduction</h4>
+<p>Follow README.md: run \`npm install\` and \`npm run build\` in a fresh checkout instead of using the pinned \`pnpm\` workflow.</p>
+</section>
+<details>
+<summary>Test analysis</summary>
+<p>No tests or documentation checks are linked for this feature, and the package scripts do not validate README command accuracy.</p>
+
+</details>
+</article>
+<article class="finding" id="fnd-fnd-sig-feat-library-f180a663ec-67b7-80b2025d73" data-severity="low" data-status="fixed">
+<header>
+<h3>🟡 Publishable website package is not marked private</h3>
+<div class="pills">
+<span class="pill pill-severity-low">low</span>
+<span class="pill pill-status-fixed">✓ fixed</span>
+</div>
+</header>
+<dl class="finding-meta">
+<dt>ID</dt><dd><code>fnd_sig-feat-library-f180a663ec-67b7_80b2025d73</code></dd>
+<dt>Feature</dt><dd><a href="#feat-feat-library-f180a663ec">Node package daniakash.com</a></dd>
+<dt>Category</dt><dd>build-release</dd>
+<dt>Confidence</dt><dd>medium</dd>
+<dt>Triage</dt><dd>risk</dd>
+</dl>
+<details open>
+<summary>Evidence</summary>
+<ul>
+<li><code>package.json:2-4</code> <code>daniakash.com</code>
+<pre><code class="language-json">&quot;name&quot;: &quot;daniakash.com&quot;, &quot;type&quot;: &quot;module&quot;, &quot;version&quot;: &quot;0.0.1&quot;</code></pre>
+</li>
+</ul>
+
+</details>
+<section>
+<h4>Reasoning</h4>
+<p>This appears to be an Astro website package, not a reusable npm library, but the manifest has a name and version and does not set \`private: true\`. That leaves accidental \`pnpm publish\` or automation-triggered publication possible, which can expose package metadata or reserve an unintended npm package name.</p>
+</section>
+<section>
+<h4>Recommendation</h4>
+<p>Add \`&quot;private&quot;: true\` near the top of package.json unless this project is intentionally meant to be published as an npm package.</p>
+</section>
+<section>
+<h4>Minimum fix scope</h4>
+<p>package.json manifest metadata.</p>
+</section>
+<section>
+<h4>Reproduction</h4>
+<p>Run \`pnpm publish --dry-run\`; npm tooling will treat the manifest as publishable because it is not private.</p>
+</section>
+<details>
+<summary>Test analysis</summary>
+<p>No release or publish-safety tests are linked for this feature.</p>
+<h5>Suggested regression test</h5>
+<p>Add a lightweight manifest check that asserts private is true for this website project, if the repository has a package metadata validation step.</p>
+</details>
+</article>
+</section>
+<section id="features" aria-labelledby="features-h">
+<h2 id="features-h">Features</h2>
+<table>
+<thead><tr><th>Title</th><th>Kind</th><th>Status</th><th>Findings</th><th>Entrypoint</th></tr></thead>
+<tbody>
+<tr id="feat-feat-config-0c1c23856a"><td>Project config tsconfig.json</td><td>config</td><td>reviewed</td><td>0</td><td><code>tsconfig.json</code></td></tr>
+<tr id="feat-feat-config-7528cb5b98"><td>Project config package.json</td><td>config</td><td>reviewed</td><td>0</td><td><code>package.json</code></td></tr>
+<tr id="feat-feat-library-126d1a8112"><td>Node source src/constants</td><td>library</td><td>reviewed</td><td>0</td><td><code>package.json</code></td></tr>
+<tr id="feat-feat-library-30733ce202"><td>Node source src/pages</td><td>library</td><td>needs-fix</td><td>2</td><td><code>package.json</code></td></tr>
+<tr id="feat-feat-library-481f66376c"><td>Node source src/utils</td><td>library</td><td>needs-fix</td><td>1</td><td><code>package.json</code></td></tr>
+<tr id="feat-feat-library-c79e5f55d9"><td>Node source src/components</td><td>library</td><td>needs-fix</td><td>2</td><td><code>package.json</code></td></tr>
+<tr id="feat-feat-library-f180a663ec"><td>Node package daniakash.com</td><td>library</td><td>needs-fix</td><td>2</td><td><code>package.json</code></td></tr>
+<tr id="feat-feat-library-f8bf0b65a1"><td>Node source src</td><td>library</td><td>needs-fix</td><td>1</td><td><code>package.json</code></td></tr>
+<tr id="feat-feat-release-4862937c51"><td>Package script lint</td><td>release</td><td>reviewed</td><td>0</td><td><code>package.json</code></td></tr>
+<tr id="feat-feat-release-51170e0f9c"><td>Package script build</td><td>release</td><td>reviewed</td><td>0</td><td><code>package.json</code></td></tr>
+<tr id="feat-feat-release-734b842583"><td>Package script format</td><td>release</td><td>reviewed</td><td>0</td><td><code>package.json</code></td></tr>
+<tr id="feat-feat-release-775032a0f4"><td>Package script start</td><td>release</td><td>pending</td><td>0</td><td><code>package.json</code></td></tr>
+<tr id="feat-feat-release-a235aa99b1"><td>Package script typecheck</td><td>release</td><td>pending</td><td>0</td><td><code>package.json</code></td></tr>
+<tr id="feat-feat-ui-flow-01d1997a91"><td>React component AmbientCanvas</td><td>ui-flow</td><td>pending</td><td>0</td><td><code>src/components/AmbientCanvas.tsx</code></td></tr>
+<tr id="feat-feat-ui-flow-a5816877de"><td>React component ThemeToggle</td><td>ui-flow</td><td>pending</td><td>0</td><td><code>src/components/ThemeToggle.tsx</code></td></tr>
+<tr id="feat-feat-ui-flow-e084b0b622"><td>React component Globe</td><td>ui-flow</td><td>pending</td><td>0</td><td><code>src/components/Globe.tsx</code></td></tr>
+</tbody>
+</table>
+</section>
+<section id="patches" aria-labelledby="patches-h">
+<h2 id="patches-h">Patches</h2>
+<article>
+<header><h3><code>pat_fnd-sig-feat-library-f180a663ec-_6582ed80f7</code></h3></header>
+<dl class="finding-meta">
+<dt>Status</dt><dd>applied</dd>
+<dt>Findings</dt><dd>1</dd>
+<dt>Files changed</dt><dd>18</dd>
+
+
+</dl>
+<h4>Plan</h4><p>Added \`&quot;private&quot;: true\` to the top-level package manifest so the Astro website package is not publishable by npm tooling.</p>
+<details><summary>Files changed (18)</summary><ul><li><code>daniakash.com/.clawpatch/config.json</code></li>
+<li><code>daniakash.com/.clawpatch/features/feat_config_0c1c23856a.json</code></li>
+<li><code>daniakash.com/.clawpatch/features/feat_config_7528cb5b98.json</code></li>
+<li><code>daniakash.com/.clawpatch/features/feat_library_481f66376c.json</code></li>
+<li><code>daniakash.com/.clawpatch/features/feat_library_f180a663ec.json</code></li>
+<li><code>daniakash.com/.clawpatch/features/feat_library_f8bf0b65a1.json</code></li>
+<li><code>daniakash.com/.clawpatch/features/feat_release_4862937c51.json</code></li>
+<li><code>daniakash.com/.clawpatch/features/feat_release_51170e0f9c.json</code></li>
+<li><code>daniakash.com/.clawpatch/features/feat_release_734b842583.json</code></li>
+<li><code>daniakash.com/.clawpatch/features/feat_release_775032a0f4.json</code></li>
+<li><code>daniakash.com/.clawpatch/features/feat_release_a235aa99b1.json</code></li>
+<li><code>daniakash.com/.clawpatch/features/feat_ui-flow_01d1997a91.json</code></li>
+<li><code>daniakash.com/.clawpatch/features/feat_ui-flow_a5816877de.json</code></li>
+<li><code>daniakash.com/.clawpatch/features/feat_ui-flow_e084b0b622.json</code></li>
+<li><code>daniakash.com/.clawpatch/project.json</code></li>
+<li><code>daniakash.com/.clawpatch/runs/20260517T104148-ff577f.json</code></li>
+<li><code>daniakash.com/.clawpatch/runs/20260517T104513-6d9f59.json</code></li>
+<li><code>daniakash.com/package.json</code></li></ul></details>
+<details><summary>Commands run (3)</summary><table><thead><tr><th>Command</th><th>Exit</th><th>Duration</th></tr></thead><tbody><tr><td><code>pnpm format</code></td><td>0</td><td>249ms</td></tr>
+<tr><td><code>pnpm typecheck</code></td><td>0</td><td>6856ms</td></tr>
+<tr><td><code>pnpm lint</code></td><td>0</td><td>234ms</td></tr></tbody></table></details>
+</article>
+</section>
+</main>
+<footer><p><em>Generated by clawpatch-reporter from <code>.clawpatch/</code> state.</em></p></footer>
+</body>
+</html>
+"
+`;
