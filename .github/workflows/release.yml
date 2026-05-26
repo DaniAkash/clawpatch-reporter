@@ -45,13 +45,9 @@ jobs:
           fetch-depth: 0
 
       - name: Install Bun
-        # Install via the official curl script instead of oven-sh/setup-bun
-        # to avoid Actions codeload flakiness when resolving action SHAs.
-        # The version comes from .bun-version so updates stay a one-line
-        # change reviewed like any other source change.
-        run: |
-          curl -fsSL https://bun.sh/install | bash -s "bun-v$(cat .bun-version)"
-          echo "$HOME/.bun/bin" >> "$GITHUB_PATH"
+        # Reads the version from .bun-version. Bumping Bun is a one-line
+        # change to that file, reviewed like any other source change.
+        uses: oven-sh/setup-bun@v2.2.0
 
       - name: Install Node + npm (for the publish step)
         # ubuntu-latest already ships npm, but setup-node pins the
