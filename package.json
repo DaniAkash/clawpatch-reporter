@@ -1,0 +1,60 @@
+{
+  "name": "clawpatch-reporter",
+  "version": "0.0.1",
+  "description": "CLI that renders clawpatch findings into GitHub-flavored Markdown or semantic HTML reports.",
+  "type": "module",
+  "bin": {
+    "clawpatch-reporter": "dist/cli.js"
+  },
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "oxlint .",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "bun run build"
+  },
+  "dependencies": {
+    "commander": "^14.0.3",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "oxfmt": "^0.50.0",
+    "oxlint": "^1.65.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.6"
+  },
+  "keywords": [
+    "clawpatch",
+    "code-review",
+    "report",
+    "markdown",
+    "html",
+    "cli"
+  ],
+  "author": "Dani Akash",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaniAkash/clawpatch-reporter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DaniAkash/clawpatch-reporter/issues"
+  },
+  "homepage": "https://github.com/DaniAkash/clawpatch-reporter#readme"
+}

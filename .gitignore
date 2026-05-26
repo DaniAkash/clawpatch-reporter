@@ -1,0 +1,21 @@
+node_modules
+dist
+coverage
+.DS_Store
+
+# Bun and pnpm lockfiles, package manager noise
+.pnpm-store
+
+# Editor
+.vscode
+.idea
+
+# Local env
+.env
+.env.local
+
+# Logs
+*.log
+
+# Vitest snapshot diffs
+__snapshots__/.tmp/
