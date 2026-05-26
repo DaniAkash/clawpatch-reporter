@@ -4,7 +4,7 @@ export default defineConfig({
   entry: ["src/index.ts", "src/cli.ts"],
   format: ["esm"],
   target: "node",
-  dts: true,
+  dts: { inferTypes: true },
   clean: true,
   external: ["commander", "zod"],
 });
