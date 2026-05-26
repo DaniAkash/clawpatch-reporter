@@ -10,10 +10,10 @@ Reads a project's `.clawpatch/` state directory and produces a single human-frie
 
 A real report generated from the [daniakash.com](https://github.com/DaniAkash/DaniAkash/tree/main/daniakash.com) project (16 features, 8 findings, 1 patch, 3 runs).
 
-| Format | File | How to view |
+| Format | File | Live preview |
 | --- | --- | --- |
 | Markdown | [`examples/daniakash.com/report.md`](./examples/daniakash.com/report.md) | Renders inline on GitHub. |
-| HTML | [`examples/daniakash.com/report.html`](./examples/daniakash.com/report.html) | Clone the repo, then `open examples/daniakash.com/report.html`. |
+| HTML | [`examples/daniakash.com/report.html`](./examples/daniakash.com/report.html) | [Open in browser](https://raw.githack.com/DaniAkash/clawpatch-reporter/main/examples/daniakash.com/report.html) |
 
 The Markdown file uses GFM tables, alerts, collapsible `<details>` blocks, and language-tagged code fences. The HTML file is a single self-contained document linking new.css from CDN.
 
