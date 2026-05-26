@@ -47,7 +47,7 @@ jobs:
       - name: Install Bun
         # Reads the version from .bun-version. Bumping Bun is a one-line
         # change to that file, reviewed like any other source change.
-        uses: oven-sh/setup-bun@v2
+        uses: oven-sh/setup-bun@v2.2.0
 
       - name: Install Node + npm (for the publish step)
         # ubuntu-latest already ships npm, but setup-node pins the
