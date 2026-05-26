@@ -7,12 +7,12 @@ import type {
 } from "../schemas/enums.js";
 
 export type FindingFilters = {
-  statuses?: FindingStatus[];
-  severities?: FindingSeverity[];
-  categories?: FindingCategory[];
-  triages?: FindingTriage[];
-  featureId?: string;
-  includeFixed?: boolean;
+  statuses?: FindingStatus[] | undefined;
+  severities?: FindingSeverity[] | undefined;
+  categories?: FindingCategory[] | undefined;
+  triages?: FindingTriage[] | undefined;
+  featureId?: string | undefined;
+  includeFixed?: boolean | undefined;
 };
 
 export function filterFindings(
