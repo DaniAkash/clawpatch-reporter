@@ -109,6 +109,8 @@ bun run build
 
 Tests use a real `.clawpatch/` fixture under `test/fixtures/daniakash-com/` so every renderer change shows up as a snapshot diff.
 
+For the release process, project layout, and commit-style rules, see [CONTRIBUTING.md](./CONTRIBUTING.md).
+
 ## License
 
 MIT

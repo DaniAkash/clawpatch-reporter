@@ -2,14 +2,37 @@
   "name": "clawpatch-reporter",
   "version": "0.0.1",
   "description": "CLI that renders clawpatch findings into GitHub-flavored Markdown or semantic HTML reports.",
+  "license": "MIT",
+  "author": "Dani Akash",
+  "homepage": "https://github.com/DaniAkash/clawpatch-reporter#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaniAkash/clawpatch-reporter.git"
+  },
+  "bugs": "https://github.com/DaniAkash/clawpatch-reporter/issues",
+  "keywords": [
+    "clawpatch",
+    "code-review",
+    "report",
+    "markdown",
+    "html",
+    "cli"
+  ],
   "type": "module",
-  "bin": {
-    "clawpatch-reporter": "dist/cli.js"
-  },
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./dist/index.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
   },
+  "bin": {
+    "clawpatch-reporter": "./dist/cli.js"
+  },
+  "sideEffects": false,
   "files": [
     "dist",
     "README.md",
@@ -19,14 +42,14 @@
     "node": ">=22"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "build": "bunup",
+    "dev": "bunup --watch",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "oxlint .",
     "format": "oxfmt --write .",
     "format:check": "oxfmt --check .",
     "test": "vitest run",
-    "test:watch": "vitest",
-    "prepublishOnly": "bun run build"
+    "test:watch": "vitest"
   },
   "dependencies": {
     "commander": "^14.0.3",
@@ -34,27 +57,14 @@
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
+    "bunup": "^0.16.31",
     "oxfmt": "^0.50.0",
     "oxlint": "^1.65.0",
     "typescript": "^6.0.3",
     "vitest": "^4.1.6"
   },
-  "keywords": [
-    "clawpatch",
-    "code-review",
-    "report",
-    "markdown",
-    "html",
-    "cli"
-  ],
-  "author": "Dani Akash",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DaniAkash/clawpatch-reporter.git"
-  },
-  "bugs": {
-    "url": "https://github.com/DaniAkash/clawpatch-reporter/issues"
-  },
-  "homepage": "https://github.com/DaniAkash/clawpatch-reporter#readme"
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
 }
